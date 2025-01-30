@@ -68,8 +68,8 @@ public class Planet {
     public void update(double time, double fX, double fY) {
         double aX = fX / mass;
         double aY = fY / mass;
-        double xxVel = this.xxVel + aX * time;
-        double yyVel = this.yyVel + aY * time;
+        xxVel = this.xxVel + aX * time;
+        yyVel = this.yyVel + aY * time;
         xxPos = xxPos + xxVel * time;
         yyPos = yyPos + yyVel * time;
     }
