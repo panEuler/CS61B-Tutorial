@@ -7,7 +7,7 @@ public class NBody {
         return radius;
     }
 
-    static Planet[] readBodys(String filename) {
+    static Planet[] readPlanets(String filename) {
         In in = new In(filename);
         int firstItemInFile = in.readInt();
         double radius = in.readDouble();
@@ -32,7 +32,7 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
         /* read in the bodies and universe radius */
-        Planet[] bodys = readBodys(filename);
+        Planet[] bodys = readPlanets(filename);
         double radius = readRadius(filename);
 
         /* set the scale */
@@ -43,7 +43,7 @@ public class NBody {
         StdDraw.clear();
         /* draw the picture */
         StdDraw.picture(0, 0, imageToDraw);
-        Planet[] bodies = readBodys(filename);
+        Planet[] bodies = readPlanets(filename);
         for (Planet body : bodies) {
             body.draw();
         }
