@@ -1,4 +1,4 @@
-public class Body {
+public class Planet {
     double xxPos;
     double yyPos;
     double xxVel;
