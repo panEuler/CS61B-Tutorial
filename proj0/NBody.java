@@ -7,12 +7,12 @@ public class NBody {
         return radius;
     }
 
-    static Body[] readBodys(String filename) {
+    static Planet[] readBodys(String filename) {
         In in = new In(filename);
         int firstItemInFile = in.readInt();
         double radius = in.readDouble();
         int line = 0;
-        Body[] Array = new Body[firstItemInFile];
+        Planet[] Array = new Planet[firstItemInFile];
         while (line < firstItemInFile) {
             double xxPos = in.readDouble();
             double yyPos = in.readDouble();
@@ -20,7 +20,7 @@ public class NBody {
             double yyVel = in.readDouble();
             double mass = in.readDouble();
             String imgFileName = in.readString();
-            Array[line] = new Body(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
+            Array[line] = new Planet(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
             line++;
         }
         return Array;
@@ -32,7 +32,7 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
         /* read in the bodies and universe radius */
-        Body[] bodys = readBodys(filename);
+        Planet[] bodys = readBodys(filename);
         double radius = readRadius(filename);
 
         /* set the scale */
@@ -43,8 +43,8 @@ public class NBody {
         StdDraw.clear();
         /* draw the picture */
         StdDraw.picture(0, 0, imageToDraw);
-        Body[] bodies = readBodys(filename);
-        for (Body body : bodies) {
+        Planet[] bodies = readBodys(filename);
+        for (Planet body : bodies) {
             body.draw();
         }
         StdDraw.enableDoubleBuffering();
@@ -63,7 +63,7 @@ public class NBody {
             /* draw the picture */
             StdDraw.picture(0, 0, imageToDraw);
             /* draw all the Bodys */
-            for (Body body : bodies) {
+            for (Planet body : bodies) {
                 body.draw();
             }
             /* show the offscreen buffer */
