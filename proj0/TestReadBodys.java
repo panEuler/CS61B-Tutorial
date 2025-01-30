@@ -16,7 +16,7 @@ public class TestReadBodys {
          * If the following line fails to compile, you probably need to make
          * a certain method static!
          */
-        Planet[] actualOutput = NBody.readBodys(BodysTxtPath);
+        Planet[] actualOutput = NBody.readPlanets(BodysTxtPath);
 
         /* Check the simple things: */
         if (actualOutput == null) {
